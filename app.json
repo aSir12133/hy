@@ -7,10 +7,6 @@
       "description": "Hysteria开启的端口",
       "value": "33445"
     },
-    "protocol": {
-      "description": "协议类型：1-udp(QUIC)，2-faketcp，3-wechat-video",
-      "value": "1"
-    },
     "auth_str": {
       "description": "认证口令",
       "value": ""
