@@ -13,6 +13,8 @@ IP=$(curl -s6m8 ip.sb) || IP=$(curl -s4m8 ip.sb)
 if [[ -n $(echo $IP | grep ":") ]]; then
     IP="[$IP]"
     echo -e "$IP"
+    echo -e "$PORT"
+    echo -e "$DOMAIN"
 fi
 
 
@@ -21,7 +23,7 @@ ufw disable
 
 cat <<EOF > /etc/hysteria/config.json
 {
-  "listen": ":$port",
+  "listen": ":$PORT",
   "cert": "/root/cert.crt",
   "key": "/root/private.key",
   "obfs": "$auth_str"
