@@ -22,7 +22,7 @@ ufw disable
 
 cat <<EOF > /etc/hysteria/config.json
 {
-  "listen": "$IP:$PORT",
+  "listen": ":$PORT",
   "cert": "/root/cert.crt",
   "key": "/root/private.key",
   "obfs": "$auth_str"
