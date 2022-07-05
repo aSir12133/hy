@@ -16,6 +16,8 @@ if [[ -n $(echo $IP | grep ":") ]]; then
     echo -e "$PORT"
 fi
 
+iptables -I INPUT -p tcp --dport 80  -m comment --comment "allow tcp(hihysteria)" -j ACCEPT
+iptables -I INPUT -p tcp --dport 443  -m comment --comment "allow tcp(hihysteria)" -j ACCEPT
 
 ufw disable
 
