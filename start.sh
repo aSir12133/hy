@@ -8,7 +8,16 @@ wget -q -O /etc/hysteria/hysteria --no-check-certificate https://github.com/HyNe
 
 chmod 755 /etc/hysteria/hysteria
 
+IP=$(curl -s6m8 ip.sb) || IP=$(curl -s4m8 ip.sb)
+
+if [[ -n $(echo $IP | grep ":") ]]; then
+    IP="[$IP]"
+    echo -e "$IP"
+fi
+
+
 ufw disable
+
 
 cat <<EOF > /etc/hysteria/config.json
 {
@@ -19,15 +28,10 @@ cat <<EOF > /etc/hysteria/config.json
 }
 EOF
 
-IP=$(curl -s6m8 ip.sb) || IP=$(curl -s4m8 ip.sb)
 
-if [[ -n $(echo $IP | grep ":") ]]; then
-    IP="[$IP]"
-fi
 
 ./etc/hysteria/hysteria -c /etc/hysteria/config.json server
 
   echo -e "\033[35m↓***********************************↓↓↓copy↓↓↓*******************************↓\033[0m"
-  echo -e "$IP"
   cat /etc/hysteria/config.json
   echo -e "\033[35m↑***********************************↑↑↑copy↑↑↑*******************************↑\033[0m"
