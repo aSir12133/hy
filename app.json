@@ -3,10 +3,6 @@
   "description": "Hy",
   "keywords": ["Hy"],
   "env": {
-    "port": {
-      "description": "Hysteria开启的端口",
-      "value": "33445"
-    },
     "auth_str": {
       "description": "认证口令",
       "value": ""
