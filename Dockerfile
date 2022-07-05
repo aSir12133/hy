@@ -1,7 +1,7 @@
 FROM alpine:edge
 
 RUN apk update && \
-    apk add --no-cache curl wget unzip && \
+    apk add --no-cache curl wget unzip iptables && \
     rm -rf /var/cache/apk/*
     
 COPY cert.crt /root/
