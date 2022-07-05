@@ -14,7 +14,6 @@ if [[ -n $(echo $IP | grep ":") ]]; then
     IP="[$IP]"
     echo -e "$IP"
     echo -e "$PORT"
-    echo -e "$DOMAIN"
 fi
 
 
@@ -23,7 +22,7 @@ ufw disable
 
 cat <<EOF > /etc/hysteria/config.json
 {
-  "listen": ":$PORT",
+  "listen": "$IP:$PORT",
   "cert": "/root/cert.crt",
   "key": "/root/private.key",
   "obfs": "$auth_str"
@@ -35,5 +34,5 @@ EOF
 ./etc/hysteria/hysteria -c /etc/hysteria/config.json server
 
   echo -e "\033[35m↓***********************************↓↓↓copy↓↓↓*******************************↓\033[0m"
-  cat /etc/hysteria/config.json
+  cat ./config.json
   echo -e "\033[35m↑***********************************↑↑↑copy↑↑↑*******************************↑\033[0m"
