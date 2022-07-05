@@ -12,8 +12,8 @@ chmod 755 /etc/hysteria/hysteria
 cat <<EOF > /etc/hysteria/config.json
 {
   "listen": ":$PORT",
-  "cert": "/root/cert.crt",
-  "key": "/root/private.key",
+  "cert": "",
+  "key": "",
   "obfs": "$auth_str"
 }
 EOF
