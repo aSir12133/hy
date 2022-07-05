@@ -1,4 +1,4 @@
-FROM Hy/Hy:latest
+FROM Hy:latest
 
 RUN apk update && \
     apk add --no-cache curl wget unzip && \
