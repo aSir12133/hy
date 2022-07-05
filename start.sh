@@ -8,13 +8,6 @@ wget -q -O /etc/hysteria/hysteria --no-check-certificate https://github.com/HyNe
 
 chmod 755 /etc/hysteria/hysteria
 
-delay=200
-ip=`curl -4 -s ip.sb`
-download=$(($download + $download / 4))
-upload=$(($upload + $upload / 4))
-r_client=$(($delay * 2 * $download / 1000 * 1024 * 1024))
-r_conn=$(($r_client / 4))
-
 ufw disable
 
 cat <<EOF > /etc/hysteria/config.json
