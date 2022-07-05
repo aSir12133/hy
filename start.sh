@@ -13,8 +13,8 @@ ufw disable
 cat <<EOF > /etc/hysteria/config.json
 {
   "listen": ":$port",
-  "cert": "/root/hy/ca.crt",
-  "key": "/root/hy/ca.key",
+  "cert": "/root/cert.crt",
+  "key": "/root/private.key",
   "obfs": "$auth_str"
 }
 EOF
